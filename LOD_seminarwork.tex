@@ -1,0 +1,77 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titel
+%	Autor: Lukas Baronyai
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[pdftex,a4paper,10pt]{scrreprt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Standardformatierung
+\usepackage[left=3cm,right=3cm,top=1.5cm,bottom=2cm,includefoot]{geometry}
+\usepackage[USenglish]{babel} 
+\usepackage[ansinew]{inputenc}
+%für Silbentrennung und Schriftstil
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%für diverse Figuren
+\usepackage{graphicx}	%für Bilder/Grafiken einbinden
+\usepackage{booktabs} %schönere Tabellen
+\usepackage{wrapfig}  %mit oder von Schrift umflossen Bilder
+%für Mathe
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{amstext} %\text für Math-Umgebung
+%Referenzen
+\usepackage{prettyref} %eigene Ref mit \newrefformat
+%\usepackage{hyperref} %klickbare Verweise
+\usepackage{url}	%URL-Links
+%Algorithmen
+\usepackage[]{algorithm2e}
+\usepackage{algpseudocode}
+%anderes Zeug
+\usepackage{grffile} %pdf-Files mit Leerzeichen einbinden
+\usepackage{microtype}	%schönere pdfs
+\usepackage[multiple]{footmisc}  %für Fußnoten
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{1}			%setzt erste Seitennummer auf 1(falls Titelblatt nicht gezählt werden soll)
+\setcounter{secnumdepth}{6}	%setzt Kapitelnummerierungstiefe auf 6
+\setcounter{tocdepth}{6}			%Kapitelnummerierungstiefe für Inhaltsverzeichnis
+\makeindex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty} %No headings for the first pages.
+\titlehead{} 	%Kopf der Titelei
+\subject{TU Wien} 		%unmittelbar über dem eigentlichen Haupttitel
+\title{Publishing TUWien Data as Linked Open Data}
+\subtitle{subtitle}
+\author{Lukas Baronyai}
+\date{\today}
+\publishers{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle					%Titelseite erstellen
+\tableofcontents 	%Inhaltsverzeichnis
+\cleardoublepage %The first chapter should start on an odd page.
+%\listoftables			%Tabellenverzeichnis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{abstract}
+\include{introduction}
+\include{related}
+\include{benefits}
+\include{technical_architecture}
+\include{conclusions}
+\include{acknowledgments}
+\chapter{References}
+\addtocontents{toc}{\protect\vspace*{\baselineskip}}
+\bibliographystyle{alphadin}
+\bibliography{LOD_seminarwork}
+\chapter{Appendices}
+\appendix
+%% The List of Figures
+\clearpage
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\end{document}
