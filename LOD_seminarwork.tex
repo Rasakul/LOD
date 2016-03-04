@@ -2,7 +2,7 @@
 % Titel
 %	Autor: Lukas Baronyai
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[pdftex,a4paper,10pt]{scrreprt}
+\documentclass[pdftex,a4paper,10pt]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Standardformatierung
 \usepackage[left=3cm,right=3cm,top=1.5cm,bottom=2cm,includefoot]{geometry}
@@ -24,7 +24,7 @@
 \usepackage{amstext} %\text für Math-Umgebung
 %Referenzen
 \usepackage{prettyref} %eigene Ref mit \newrefformat
-%\usepackage{hyperref} %klickbare Verweise
+\usepackage{hyperref} %klickbare Verweise
 \usepackage{url}	%URL-Links
 %Algorithmen
 \usepackage[]{algorithm2e}
@@ -33,26 +33,31 @@
 \usepackage{grffile} %pdf-Files mit Leerzeichen einbinden
 \usepackage{microtype}	%schönere pdfs
 \usepackage[multiple]{footmisc}  %für Fußnoten
+\usepackage{csquotes}
+\usepackage[final]{pdfpages}
+\usepackage[numbers]{natbib}
+\usepackage{pgfplots}
+\usepackage{subfigure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{page}{1}			%setzt erste Seitennummer auf 1(falls Titelblatt nicht gezählt werden soll)
-\setcounter{secnumdepth}{6}	%setzt Kapitelnummerierungstiefe auf 6
-\setcounter{tocdepth}{6}			%Kapitelnummerierungstiefe für Inhaltsverzeichnis
+\setcounter{secnumdepth}{3}	%setzt Kapitelnummerierungstiefe auf 6
+\setcounter{tocdepth}{3}			%Kapitelnummerierungstiefe für Inhaltsverzeichnis
 \makeindex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+\pagestyle{plain}
+\pagenumbering{roman}
+\setlength{\tabcolsep}{10pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{empty} %No headings for the first pages.
-\titlehead{} 	%Kopf der Titelei
-\subject{TU Wien} 		%unmittelbar über dem eigentlichen Haupttitel
 \title{Publishing TUWien Data as Linked Open Data}
-\subtitle{subtitle}
 \author{Lukas Baronyai}
 \date{\today}
-\publishers{}
+\pagenumbering{arabic}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \maketitle					%Titelseite erstellen
 \tableofcontents 	%Inhaltsverzeichnis
 \cleardoublepage %The first chapter should start on an odd page.
+\listoffigures
 %\listoftables			%Tabellenverzeichnis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -63,15 +68,14 @@
 \include{technical_architecture}
 \include{conclusions}
 \include{acknowledgments}
-\chapter{References}
-\addtocontents{toc}{\protect\vspace*{\baselineskip}}
-\bibliographystyle{alphadin}
-\bibliography{LOD_seminarwork}
-\chapter{Appendices}
 \appendix
-%% The List of Figures
-\clearpage
-\addcontentsline{toc}{chapter}{List of Figures}
-\listoffigures
 
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{plainnat}
+\bibliography{LOD_seminarwork}
+
+\chapter{Appendices}
+\includepdf[pages=-]{questionnaire.pdf}
 \end{document}
