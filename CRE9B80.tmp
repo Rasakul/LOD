@@ -5,7 +5,7 @@
 \documentclass[pdftex,a4paper,10pt]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Standardformatierung
-\usepackage[left=3cm,right=3cm,top=1.5cm,bottom=1.5cm,includefoot]{geometry}
+\usepackage[left=3cm,right=3cm,top=1.5cm,bottom=2cm,includefoot]{geometry}
 \usepackage[USenglish]{babel} 
 \usepackage[ansinew]{inputenc}
 %für Silbentrennung und Schriftstil
@@ -38,7 +38,6 @@
 \usepackage[numbers]{natbib}
 \usepackage{pgfplots}
 \usepackage{subfigure}
-\usepackage[titletoc,toc,title]{appendix}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{page}{1}			%setzt erste Seitennummer auf 1(falls Titelblatt nicht gezählt werden soll)
 \setcounter{secnumdepth}{3}	%setzt Kapitelnummerierungstiefe auf 6
@@ -69,19 +68,14 @@
 \include{parts/technical_architecture}
 \include{parts/conclusions}
 \include{parts/acknowledgments}
+%\appendix
 
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{plainnat}
 \bibliography{references}
-\newpage
 
-\begin{appendices}
-	\section{Questionaire}
-	\includepdf[pages=-]{questionaire/questionnaire.pdf}
-	\newpage
-	\section{Contact persons for further investigations}
-	\newpage
-\end{appendices}
+\section{Appendices}
+\includepdf[pages=-]{questionaire/questionnaire.pdf}
 \end{document}

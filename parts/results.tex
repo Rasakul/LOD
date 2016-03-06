@@ -1,24 +1,26 @@
 \subsection{Results}
+\%\%\%\%tbd\%\%\%\%
 The opportunity to develop new ideas based on an access to open data was very common welcome across all questions (though no concrete ideas came up). 
 
 Costs
 
 \subsubsection{General statistically evaluation}
 
-\input{stat_general}
+\input{parts/stat_general}
 \subsubsection{Library data}
 
-\begin{figure}[!htbp]
+\begin{figure}[htbp]
 \centering
 \subfigure[Homepage and simple search]
-{\scalebox{0.3}{\includegraphics{screenshot_ub_tu.PNG}}}
+{\scalebox{0.3}{\includegraphics{images/screenshots/screenshot_ub_tu.PNG}}}
 \subfigure[Extended search]
-{\scalebox{0.3}{\includegraphics{screenshot_ub_tu_extended_search.PNG}}}
+{\scalebox{0.3}{\includegraphics{images/screenshots/screenshot_ub_tu_extended_search.PNG}}}
 \caption[Website of the TUVienna library]{Website of the TUVienna library}
 \label{Fi:UB_TU}
 \end{figure}
 
 \paragraph{Use case}
+\%\%\%\%TODO: more interlinking with LD4L\%\%\%\%
 This question aimed for a use case similar to the project Linked Data Libraries (described in Section ~\ref{ld-libraries}). The proposed scenarios was to publish the data or meta-data of the university library (and all of its specialized libraries) as LOD and provide an application to access the data. A further option of this scenario would be an interlink to other LOD data sets, e.g. from the publisher "`Springer"'.
 
 \paragraph{Statistically evaluation}
@@ -39,7 +41,7 @@ It can be seen in Figure~\ref{Fi:lib-data} that the interviewed persons strongly
 			enlargelimits=auto,% Vergrößern der Ränder des Diagramms
 			% Ausgabe der x Werte ohne Tausendermarkierung@
 			x tick label style={/pgf/number format/1000 sep=}]
-			\addplot table[x=Question, y=Number] {data_ld_library_useful.csv};
+			\addplot table[x=Question, y=Number] {data/data_ld_library_useful.csv};
 		\end{axis}
 	\end{tikzpicture}
 		\begin{tikzpicture}
@@ -57,8 +59,8 @@ It can be seen in Figure~\ref{Fi:lib-data} that the interviewed persons strongly
 			% Ausgabe der x Werte ohne Tausendermarkierung@
 			x tick label style={/pgf/number format/1000 sep=},
 			legend pos=north west]
-			\addplot table[x=Answer, y=Imagine] {data_ld_library_use.csv};
-			\addplot table[x=Answer, y=Use] {data_ld_library_use.csv};
+			\addplot table[x=Answer, y=Imagine] {data/data_ld_library_use.csv};
+			\addplot table[x=Answer, y=Use] {data/data_ld_library_use.csv};
 			\legend{Can imagine, Would use}
 		\end{axis}
 	\end{tikzpicture}
@@ -78,14 +80,15 @@ At last, one interviewee declined the idea and usefulness of the LD4L and simila
 
 \subsubsection{Data from the Publication database}
 
-\begin{figure}[!htbp]
+\begin{figure}[htbp]
 \centering
-{\scalebox{0.3}{\includegraphics{screenshot_pub_database.PNG}}}
+{\scalebox{0.3}{\includegraphics{images/screenshots/screenshot_pub_database.PNG}}}
 \caption[Publication database]{Publication database}
 \label{Fi:pub_db}
 \end{figure}
 
 \paragraph{Use case}
+\%\%\%\%TODO: interlinking with open science and/or Open Research Online\%\%\%\%
 The proposed use case applied to the already existing publication database of the university. In the current state the database can be accessed via its website~\footnote{\url{www.publik.tuwien.ac.at/pubstart.php}}, where a interface for search exists. For other search parameters a request to the administration has to be made. The introduced LOD approach provides an LOD interface to the existing database, so the data can be accessed over e.g. SPARQL.
 
 \paragraph{Statistically evaluation}
@@ -108,7 +111,7 @@ Similar to the library use case the interviewees liked the idea and found it all
 			enlargelimits=auto,% Vergrößern der Ränder des Diagramms
 			% Ausgabe der x Werte ohne Tausendermarkierung@
 			x tick label style={/pgf/number format/1000 sep=}]
-			\addplot table[x=Question, y=Number] {data_publication_useful.csv};
+			\addplot table[x=Question, y=Number] {data/data_publication_useful.csv};
 		\end{axis}
 	\end{tikzpicture}
 		\begin{tikzpicture}
@@ -128,8 +131,8 @@ Similar to the library use case the interviewees liked the idea and found it all
 			% Ausgabe der x Werte ohne Tausendermarkierung@
 			x tick label style={/pgf/number format/1000 sep=},
 			legend pos=north west]
-			\addplot table[x=Answer, y=Imagine] {data_publication_use.csv};
-			\addplot table[x=Answer, y=Use] {data_publication_use.csv};
+			\addplot table[x=Answer, y=Imagine] {data/data_publication_use.csv};
+			\addplot table[x=Answer, y=Use] {data/data_publication_use.csv};
 			\legend{Can imagine, Would use}
 		\end{axis}
 	\end{tikzpicture}
@@ -145,5 +148,6 @@ The interviewees identified uniformly a problem with the data ownership. Althoug
 Another point, some of the interviewed persons were concerned of, was quality assurance - to use the data, they need to be synchronized with the original database. To taking care of this point, the implementation of a similar project has to ensure this.
 
 \subsubsection{Other data}
+\%\%\%\%tbd\%\%\%\%
 \paragraph{Needs, potential benefits, use-cases}
 \paragraph{Challenges}
