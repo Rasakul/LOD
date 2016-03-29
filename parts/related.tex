@@ -1,43 +1,119 @@
-\section{Related work}
+\section{Related work (RQ1)}
+This section gives a brief overview of existing work relating to Linked Open Data (LOD) in university contexts. In particular we investigate experiences and established practices in that area. Fortunately there has been plenty of work done especially around Linked Universities (section~\ref{linkeduniversities}), an alliance of european universities. Next we introduce the LinkedUp project (section~\ref{linkedup}), which tries to combine several of those facilitating a uniform view of these concepts. Then we shortly describe the Austrian Open Data project (section~\ref{related-work:austrian-open-data}), managed by the austrian government, and at last the Linked Data for Libraries (LD4L) project (section~\ref{ld-libraries}), which aims to interlink various university libraries.
+
 \subsection{Linked Universities}\label{linkeduniversities}
-One of the most important university projects in the world of LD are the LinkedUniversities. They are "`\textit{an alliance of european universities engaged into exposing their public data as linked data}"'\citet{url:linkeduniversities}, providing help and knowledge for other universities who wants to implement LD-Systems in their infrastructure. Addressing the problem of connecting data and developing new sites by inexperienced universities, the alliance provide information so they don't have to be re-learned. For this purpose the LinkedUniversities offering a portal as collaborative space with common vocabularies and practices for reusing, describing and sharing.
+One of the most important university projects in the world of LD are the LinkedUniversities. They are ``\textit{an alliance of european universities engaged into exposing their public data as linked data}''\citet{url:linkeduniversities}, providing help and knowledge for other universities who wants to implement LD-Systems in their infrastructure. Addressing the problem of connecting data and developing new sites by inexperienced universities, the alliance provide information so they don't have to be re-learned. For this purpose the LinkedUniversities offering a portal as collaborative space with common vocabularies and practices for reusing, describing and sharing.
 
 Their goals are:~\footnote{\citet{url:linkeduniversities}}
 
 \begin{itemize}
-\item "`Identify, support and develop common linked data vocabularies, usable accross universities for common concepts such as courses, qualifications, educational material, etc."'
-\item "`Describe reusable recipes, and share reusable tools, for exposing linked data in universities"'
-\item "`Support, through experience sharing and reuse, initiatives towards exposing university data as linked data"'
+\item ``Identify, support and develop common linked data vocabularies, usable accross universities for common concepts such as courses, qualifications, educational material, etc.''
+\item ``Describe reusable recipes, and share reusable tools, for exposing linked data in universities''
+\item ``Support, through experience sharing and reuse, initiatives towards exposing university data as linked data''
 \end{itemize}
 
-
-The members of this alliance are:(~\footnote{\citet{url:linked-universities-members}})
+The members of this alliance are:~\footnote{\citet{url:linked-universities-members}}
 \begin{itemize}
-	\item The Open University, UK
-	\item University of M\"unster, Germany
-	\item Aalto University, Finland
-	\item University of Southampton
-	\item Royal Institute of Technology (KTH) / MetaSolutions AB
-	\item Aristotle University of Thessaloniki, Greece
-	\item Ege University, Turkey
-	\item Charles University in Prague
-	\item Universitat Pompeu Fabra
+	\item The Open University, UK (\texttt{Mathieu d'Aquin, Stefan Dietze})
+	\item University of M\"unster, Germany (\texttt{Carsten Kessler})
+	\item Aalto University, Finland (\texttt{Tomi Kauppinen})
+	\item University of Southampton (\texttt{Christopher Gutteridge})
+	\item Royal Institute of Technology (KTH) / MetaSolutions AB (\texttt{Hannes Ebner})
+	\item Aristotle University of Thessaloniki, Greece (\texttt{Charalampos Bratsas})
+	\item Ege University, Turkey (\texttt{Oguz Dikenelli})
+	\item Charles University in Prague (\texttt{Jakub Klímek})
+	\item Universitat Pompeu Fabra (\texttt{Jorge Pantoja})
 \end{itemize}
+
+\subsubsection{Data sets and Endpoints of the Linked Universities}
+All universities participating in Linked Universities provide endpoints for all different kinds of Linked Data.
+
+The Linked Universities project provides a list of participating universities together with endpoints offering Linked Open Data. 
+Unfortunately up to the time of writing this paper not all endpoints listed at the member page\footnote{\label{LOD_endpoints}\url{http://linkeduniversities.org/lu/index.php/datasets-and-endpoints/index.html}} are online. 
+
+The table below shows selected universities together with online SPARQL endpoints and data catalogs: 
+
+\begin{figure}[htbp]
+  \centering
+	\label{table:sparql_data_catalog_linked_universities}
+  \renewcommand{\arraystretch}{2}% Spread rows out...
+  \begin{tabular}{| m{4cm} | m{4cm} | m{4cm} |} \hline
+    \textbf{University} & \textbf{Data Set} & \textbf{SPARQL Endpoint}\\ \hline
+    Open University & \url{http://data.open.ac.uk} & \url{http://data.open.ac.uk/query}\\ \hline
+		University of Southampton & \url{http://data.southampton.ac.uk} & \url{http://sparql.data.southampton.ac.uk}\\ \hline
+		Aalto University & \url{http://data.aalto.fi} & \url{http://data.aalto.fi/endpoint}\\ \hline
+		University of Muenster & \url{http://data.uni-muenster.de} & \url{http://data.uni-muenster.de/php/sparql}\\ \hline
+		University of Pompeu Fabra & \url{http://data.upf.edu/en/linked_data} & \url{http://data.upf.edu/en/sparql}\\ \hline
+  \end{tabular}
+	\caption[Endpoints and data from Linked Universities]{SPARQL endpoints and data catalogs of selected members of Linked Universities}
+\end{figure}
 
 \subsubsection{Example: The Open University and the LUCERO Project}
-LUCERO (Linking University Content for Education and Research Online) was a project from the Open University, funded for 1 year by the JISC Information Environment 2011 Programme under the call Deposit of research outputs and Exposing digital content for education and research. Aim of the project was to "` \textit{ scope, prototype, pilot and evaluate reusable, cost-effective solutions relying on linked data for exposing and connecting educational and research content}"'~\footnote{\citet{url:lucero}}. The projects connected with other organizations through LinkedUniversities.org to gather common issues and practices. They outcome was the first university linked data platform, \url{http://data.open.ac.uk/}, with much impact on The Open University and the education community.
+LUCERO (Linking University Content for Education and Research Online) was a project from the Open University, funded for 1 year by the JISC Information Environment 2011 Programme under the call Deposit of research outputs and Exposing digital content for education and research. Aim of the project was to `` \textit{ scope, prototype, pilot and evaluate reusable, cost-effective solutions relying on linked data for exposing and connecting educational and research content}''~\footnote{\citet{url:lucero}}. The projects connected with other organizations through LinkedUniversities.org to gather common issues and practices. They outcome was the first university linked data platform, \url{http://data.open.ac.uk/}, with much impact on The Open University and the education community.
 
-\%\%\%\%TODO: section about Open Research Online\%\%\%\%
+\newpage
+
+\subsection{LinkedUp project - Linking Web Data for Education}\label{linkedup}
+\label{sec:linkedup}
+The LinkedUp project\footnote{\url{http://linkedup-project.eu/}} is a project funded by the European Commission aimed at pushing forward the exploitation and adoption of Linked Open Data in educational organizations and institutions. This project started on the 1st November 2012 and lasted about 2 years. 
+
+More specifically, the projects main objectives are:
+\begin{itemize}
+	\item \texttt{Open Web Data Success Stories}~\\
+	The identification of innovative success stories using tools and data sets in the education sector helps at spreading knowledge and awareness of Linked Data 
+	principles. 
+	\item \texttt{Web Data Curation}~\\
+	The collection of relevant educational data sets facilitate the integration of third party data and applications. 
+	\item \texttt{Evaluation Framework for Open Web Data Applications}~\\
+	Evaluation of successful large scale applications driven by Linked Open Data promotes the adoption of Linked Open Data especially in educational contexts. 
+	\item \texttt{Technology Transfer in the Education Sector}~\\
+	The promotion of Linked Open Data technologies is an explicit goal of the LinkedUp project. 
+\end{itemize}
+
+The outcome of the LinkedUp project to investigate the goals listed above are several so-called \textit{``deliverables''}\footnote{\url{http://linkedup-project.eu/resources/deliverables/}}. 
+
+Below, there is a list of the most relevant deliverables:
+
+\subsubsection{State of the art and data assessment}~\\
+In this report~\cite{url:linkedup_state_of_the_art_and_data_assessment} a comprehensive study on the developments in the field of Linked Data and related fields of educational data mining and learning analytics is given. The report resulted from a collaboration between the Leibniz University of Hannover, the Open Knowledge Foundation, the Open Universiteit Nederland, the Open University, Elsevier and Exact Learning Solutions. The authors first briefly describe fundamental technologies and concepts, namely Linked Data, educational data mining and learning analytics used throughout the paper. Several candidates representing each of the two basic data mining principles~(\textit{data harvesting} and \textit{distributed search}) for heterogeneous data sets are presented. The field of learning analytics focuses on techniques targeted at analyzing and understanding educational learning processes and environments. A complete discussion on this topic though, was out of scope since this is a relatively new research area. Next, challenges and barriers concerning the heterogeneity of open educational resources are investigated. Techniques trying to solve isolated data sets include \textit{schema mapping} and \textit{classification and clustering}. Finally, data sets from the LinkedUp repository\footnote{\url{http://data.linkededucation.org/linkedup/catalog/browse/}} and possible legal obstacles and solutions to these are assessed. 
+
+\subsubsection{The LinkedUp Challenge(s)}
+The LinkedUp Challenge\footnote{\url{http://linkedup-challenge.org/}} was organized as three separate challenges \textit{Veni}, \textit{Vidi} and \textit{Vici} ending on October 2013, April 2014 and November 2014 respectively. While the goal of the first competition~(Veni) was developing a \textit{``prototype or demo that uses linked and/or open data for educational purposes''}, the Vidi challenge was targeted at finding \textit{``innovative and robust prototypes and demos for tools, which still may contain bugs, as long as it has a stable set of features and there is some proof that us can be deployed on a realistic scale''}. The rationale of the latter, yet more advanced challenge was to build \textit{``advanced prototypes and tools that should be mature and stable; it should be used or have been used by a fair amount of users on a realistic scale''}~\cite{url:linkedup_lnikedup_challenge_results}. 
+The combined goal though was to promote creativity and innovation in ways to mash-up and link educational resources and services. In addition, companies, universities and government agencies were encouraged to share and (cross-)link to educational and non-educational assets. 
+
+The winner for Veni was \texttt{Polimedia}\footnote{\url{http://www.polimedia.nl/}}, an application facilitating large-scale, cross-media analysis of the coverage of political events.
+\texttt{TuvaLabs}\footnote{\url{https://tuvalabs.com/}} won the first place of the Vidi competition aimed at transforming open data into opportunities for meaningful teaching and learning, equipping teachers and students with high quality, consolidated data sets. Finally, \texttt{Flax}~(Flexible Language Acquisition)\footnote{\url{http://flax.nzdl.org/}}, the winner of the Vici competition, was designed to automate the production and delivery of interactive digital language collections and targeted to non-expert users~(e.g. language teachers, language learners, subject specialists, instructional design and e-learning support teams). 
+
+\subsubsection{Evaluation Framework}
+\citet{url:linkedup_evaluation_framework} proposed an evaluation framework throughout the three web open educational data competitions Veni, Vidi and Vici, described in detail in the last paragraph. The aim of the evaluation framework was to evaluate the usefulness, usability, acceptance and appropriateness of the contributions to the LinkedUp challenges. Therefore experts had to define and/or refine assessment criteria and indicators for measuring the quality of the framework. Practically the frameworks usefulness and ease of use was tested through a questionnaire and interviews. A detailed questionnaire for each of the three challenges as well as the final version of the evaluation framework are accessible at \cite{url:linkedup_evaluation_framework}.
+
+\newpage
 
 \subsection{Austrian Open Data}
+\label{related-work:austrian-open-data}
+In Austria datasets of various governmental units from different areas of life are exposed on the open data portal \texttt{data.gv.at}. Whereas this data portal is restricted to governmental units\footnote{Member of 'Cooperation OGD Austria'}, \texttt{opendataportal.at} provides a platform for anyone who wants to share data in an open way. In both cases the category \textit{'Bildung und Forschung'} (German for education and research) is especially of interest for (Linked) Open Data initiatives at Austrian universities. Overall, the published data sets are mainly localizing points of interest (libraries, museums and universities) and apart of the Vienna University of Economics more specific information like provided courses and curricula has not been published yet about universities. In fact, the Vienna University of Economics is already active and publishes mainly course information and library collections in a machine-readable and open way on their open data portal \texttt{data.wu.ac.at} and on \texttt{opendataportal.at}. All in all the amount of data concerning education and research on the mentioned Austrian data portals is negligibly at the moment of writing.
+
+Meanwhile data is exposed in machine-readable and open formats, there has been little effort taken to provide it as Linked Open Data. However, Christian Weiss has designed a system\footnote{\url{http://cweiss.net/lod/} last accessed on 15.03.2016} in connection with his master thesis\footnote{C. Weiss, 'Transferring Open Government Data into the global Linked Open Data Cloud', 2013} to provide a subset of the Open Government Data provided by Vienna (\texttt{data.wien.gv.at}) as Linked Open Data. In the same year 2013 the project LODPilot\footnote{\url{http://lodpilot.at/}} was initiated to create an infrastructure to provide the basic datasets published on \texttt{data.gv.at} and \texttt{data.wien.gv.at} as Linked Open Data.
+
+Beside the open data portals, \texttt{Wegweiser}\footnote{\url{http://www.wegweiser.ac.at/}} is an early attempt of a set of Austrian universities to share information of public interest like course information, curricula and building plans in an open way. The information on Wegweiser is served only in a human readable format and therefore not easily processable by computers so that applications based on it can difficultly evolve. Furthermore, the service is not maintained anymore and outdated. \texttt{Open Street Maps}\footnote{\url{https://www.openstreetmap.org/}} is a global service that make spatial information of Austria (a.o.), which has been collected by an open community, available in an open way. The University of Leipzig has built an infrastructure to provide this collected information as Linked Open Data with the project named \texttt{LinkedGeoData}\footnote{\url{http://linkedgeodata.org/About}}. \texttt{DBPedia}\footnote{\url{http://wiki.dbpedia.org/}} is another project of the mentioned university that extracts knowledge from Wikipedia and transforms it into Linked Open Data. For example, \texttt{DBPedia} contains a machine-processable description of the Vienna University of Technology\footnote{\url{http://dbpedia.org/page/Vienna_University_of_Technology}}. \texttt{Wikidata}\footnote{\url{https://www.wikidata.org/}} is a project similar to \texttt{DBPedia} and also provides knowledge about Austria in a machine-processable format. 
+
+\newpage
+
 \subsection{Linked Data for Libraries (LD4L)\label{ld-libraries}}
 
-\%\%\%\%tbd\%\%\%\%
+The project ``Linked Data for Libraries'' (LD4L) is a collaboration of the Cornell University Library\footnote{\url{http://www.library.cornell.edu/}}, the Harvard Library Innovation Lab\footnote{\url{http://librarylab.law.harvard.edu/}}, and the Stanford University Libraries\footnote{\url{http://library.stanford.edu/}}, and is funded by a nearly \$1 million two-year grant from the Andrew W. Mellon Foundation. ``The project aim to create a Scholarly Resource Semantic Information Store (SRSIS) model that works both within individual institutions and through a coordinated, extensible network of Linked Open Data to capture the intellectual value that librarians and other domain experts and scholars add to information resources when they describe, annotate, organize, select, and use those resources, together with the social value evident from patterns of usage.''~\footnote{\citet{url:ld4l}}.
 
-\subsection{Earlier studies}
+The project build on existing previous work including:
+
 \begin{itemize}
-	\item Interlinking educational Resources and the Web of Data - a Survey of Challenges and Approaches (http://linkeduniversities.org/)
-	\item a few more at http://linkeduniversities.org/lu/index.php/publications/index.html
-	
-	
+\item \texttt{VIVO}\footnote{\url{http://vivoweb.org/}}~\\
+a semantic web system and data interchange standard for describing researchers and scholars in the context of their research and scholarship
+\item \texttt{Project Hydra}\footnote{\url{http://projecthydra.org/}}~\\
+a software framework and community focused on creating digital repositories and collections, together with user workflows
+\item \texttt{BIBFRAME}\footnote{\url{http://www.loc.gov/bibframe/}}~\\
+a project of the Library of Congress and Zepheira to create a linked data standard with which libraries can describe and exchange bibliographic information about scholarly resources
 \end{itemize}
+
+The result was an open source	extensible LD4L ontology compatible	with	VIVO	ontology,	BIBFRAME,	and	other	existing	library	LOD	efforts, an open source LD4L semantic editing, display, and discovery system, implemented into the existing existing online library systems of the universities and a Project	Hydra	compatible interface to LD4L, using ActiveTriples	to support Blacklight search across multiple LD4L instances~\footnote{\citet{url:ld4l_outcomes}}. The code sources are available at github\footnote{\url{https://github.com/ld4l}}.
+
+\textbf{Important:} this is \textit{not} a Linked \textit{Open} Data project but a Linked Data project. The results are open source code projects, not endpoints like from the LinkedUniversities.

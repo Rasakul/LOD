@@ -1,4 +1,4 @@
-\section{Introduction (by Stefan)}
+\section{Introduction}
 While the pressure on governments and public organizations to release \textit{Open Data~(OD)} has significantly grown with the spread of information systems there has been also a need for \textit{linking} these data from various sources to understand the information in a contextual sense.
 
 As OD includes non-confidential data any restrictions in distribution are prohibited and information is funded only by public money~\cite{article:janssen2012benefits}. The application domain for OD providers is not restricted by its nature in any way including from traffic, weather and public transport to name a few. However, exclusively exposing public assets is not enough, in addition establishing a feedback loop facilitates an ongoing adaption to the stakeholders concerns. 
@@ -8,7 +8,9 @@ The World Wide Web has proven great success in spreading knowledge of various da
 
 \citet{artivle:bernerslee-t-2006-1} developed a five star deployment scheme classifying OD. The scheme ranges from a one star rating covering proprietary data formats~(e.g. Portable Document Format~(PDF)) to a five rating including machine-readable formats using open standards with links to other data sets.
 
-Although LOD offers universities new opportunities for providing unprecedented insight into its core activities and ease application development, a major \textbf{problem} is that \textbf{LOD has not been widely adopted by universities yet}. Even tough there are a few examples~\cite{url:linked-universities-members} of publishing university related data sets as LOD there has been little knowledge of its usage for publishing university related information. 
+Although LOD offers universities new opportunities for providing unprecedented insight into its core activities and ease application development, a major \textbf{problem} is that \textbf{LOD has not been widely adopted by universities yet}. Even though there are a few examples~\cite{url:linked-universities-members} of publishing university related data sets as LOD there has been little knowledge of its usage for publishing university related information. 
+
+To answer the research questions stated in the next sub-section we conducted interviews at the Vienna University of Technology. In particular \textbf{the context of this work are research data}, though there exist papers investigating similar research questions but with different context:~\citet{article:gamerith_publishing_2016} (administration data) and ~\citet{article:haller_publishing_2016}(data concerning students). 
 
 The remainder of this section states the addressed research questions, describes the contributions of this work and gives an overview of the structure of this paper.
 
@@ -18,19 +20,21 @@ The fundamental research question we investigate is:
 \textit{How can Linked~Open~Data help to improve processes in a university context and how can it be successfully applied?}
 \end{displayquote}
 More concrete, this paper concentrates on the following four research questions:
-\paragraph{Q1: What are best practices regarding the applicability of Linked Open Data in university settings?}
+\paragraph{RQ1: What are best practices regarding the applicability of Linked Open Data in university settings?}
 At the time of writing this paper there are no established best practices for the use of LOD due to its little adoption in university settings. For this very reason it is crucial to identify strengths and limitations from previous experiences of using LOD as the foundation of information systems~\cite{url:linked-universities-members}. 
-\paragraph{Q2: What are major benefits and barriers for each stakeholder and what are useful use cases?}
-We identified three different stakeholders \textit{Students}, \textit{Researchers} and \textit{Administration staff}. Since the success of any new technology highly depends on their acceptance concerns of each target group needs examination. Furthermore, use cases are important to showcase profits and shortcomings. 
-\paragraph{Q3: What are major challenges for the implementation of a Linked Open Data solution?}
+\paragraph{RQ2: What are major benefits and barriers for each stakeholder and what are useful use cases?}
+We identified three different stakeholders \textit{Students}, \textit{Researchers} and \textit{Administration staff}.
+However, focus of this work are researchers.
+Since the success of any new technology highly depends on their acceptance concerns of each target group needs examination. Furthermore, use cases are important to showcase profits and shortcomings. 
+\paragraph{RQ3: What are major challenges for the implementation of a Linked Open Data solution?}
 As the implementation of a LOD solution is a time consuming task the knowledge of probable challenges from a technical perspective as well as from a management perspective is key to a successful adoption. 
-\paragraph{Q4: How would a prototypical implementation of a publication framework based on Linked~Open~Data look like?}
+\paragraph{RQ4: How would a prototypical implementation of a publication framework based on Linked~Open~Data look like?}
 Among the definition of building blocks for a publication framework of university related assets a high level picture of the overall architecture needs to be drawn to give implementers and LOD experts a common understanding of the system. Next, defining sample ontologies representing selected assets of the university domain draws concrete examples of how LOD data might look like. 
 
 \subsection{Methodology}
-Finding an answer for the research questions above has lead to the following three methodologies:
+Finding an answer for the research questions above has led to the following three methodologies:
 \paragraph{A coordinated set of semi-structured interviews}
-To answer research questions~(RQ) two to four, we interviewed a selected set of stakeholders representing \textit{Students}, \textit{Researchers} and \textit{Administration staff} respectively. Semi-structured interviews were selected as the means for data collection because they are well suited for exploring the impressions and interests of the interviewees like in a discussion while still following a defined structure. 
+To answer research questions RQ2-RQ4, we interviewed a selected set of \textit{researcher}. Semi-structured interviews were selected as the means for data collection because they are well suited for exploring the impressions and interests of the interviewees like in a discussion while still following a defined structure. 
 \paragraph{Literature Review}
 Undertaking a literature review to justify scientific contributions and making sound conclusions is an established practice in any scientific community. Since our scientific work targets to the Semantic Web community we made some pre-assumptions about a basic understanding of the technologies and concepts used in that respective area. More specifically, we assume a basic understanding of the concept of an ontology and some pre-knowledge about ontology description languages. 
 \paragraph{Conceptual System Design}
@@ -42,7 +46,7 @@ More precisely, our contributions can be categorized into the following four are
 \paragraph{1. Identifying best practices for Linked Open Data in university settings.}
 Information systems needs to cope with vast amount of data nowadays growing the need to efficiently handle Linked Data as well. We gave a brief overview of existing research work in that area, in particular, we compared the benefits and shortcomings in existing LOD solutions. 
 \paragraph{2. Finding benefits/barriers including additional use cases for stakeholders.}
-As with every software project the very first phase of the Software Development Lifecycle~(SDLC) is \textit{evaluating of requirements}. As LOD driven software has additional requirements to the accessibility of data and their organization we investigated if the overhead compared to an established technology~(e.g. a database based solution) is feasible. A set of selected participants from each of the areas \textit{Research}, \textit{Student~Affairs} and \textit{Administration} are interviewed at the Vienna University of Technology. Additionally we proposed several use cases emphasizing their point of view. 
+As with every software project the very first phase of the Software Development Lifecycle~(SDLC) is \textit{evaluating of requirements}. As LOD driven software has additional requirements to the accessibility of data and their organization we investigated if the overhead compared to an established technology~(e.g. a database based solution) is feasible. A set of selected \textit{researcher} are interviewed at the Vienna University of Technology. Additionally we proposed several use cases emphasizing their point of view. 
 \paragraph{3. Discovering possible obstacles for implementers of a Linked Open Data solution.}
 As the application domain for a Linked Data is limited to the university context our work includes LOD driven applications resulting from our conducted interviews.
 \paragraph{4. Sketching a prototypical implementation of a publication framework driven by Linked Open Data.}

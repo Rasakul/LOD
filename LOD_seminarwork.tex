@@ -5,7 +5,7 @@
 \documentclass[pdftex,a4paper,10pt]{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Standardformatierung
-\usepackage[left=3cm,right=3cm,top=1.5cm,bottom=1.5cm,includefoot]{geometry}
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=1.5cm,includefoot]{geometry}
 \usepackage[USenglish]{babel} 
 \usepackage[ansinew]{inputenc}
 %für Silbentrennung und Schriftstil
@@ -39,6 +39,8 @@
 \usepackage{pgfplots}
 \usepackage{subfigure}
 \usepackage[titletoc,toc,title]{appendix}
+\usepackage{array,booktabs}% http://ctan.org/pkg/{array,booktabs}
+\renewcommand{\arraystretch}{1.5}% Spread rows out...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{page}{1}			%setzt erste Seitennummer auf 1(falls Titelblatt nicht gezählt werden soll)
 \setcounter{secnumdepth}{3}	%setzt Kapitelnummerierungstiefe auf 6
@@ -47,22 +49,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \pagestyle{plain}
-\pagenumbering{roman}
 \setlength{\tabcolsep}{10pt}
+\pagenumbering{gobble}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Publishing TUWien Data as Linked Open Data}
-\author{Lukas Baronyai}
+\title{Linked~Open~Data\\
+	   at the\\
+	   Vienna~University~of~Technology\\
+	   \large A case study about research data}
+\author{Lukas Baronyai$^a$, \textit{Author}\\
+		Kevin Haller$^b$, \textit{Co-Author}\\
+		Stefan Gamerith$^c$, \textit{Co-Author}\\
+	\texttt{\{e1326526$^a$,kevin.haller$^b$,e0925081$^c$\}@student.tuwien.ac.at}}
 \date{\today}
+
+\maketitle
+
+\begin{abstract}
+The abstract goes here.
+\end{abstract}
+
+\vfill
+\begin{center}
+\textbf{Keywords.} Linked Open Data, University, Case Study
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
 \pagenumbering{arabic}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\maketitle					%Titelseite erstellen
-\tableofcontents 	%Inhaltsverzeichnis
-\cleardoublepage %The first chapter should start on an odd page.
-\listoffigures
-%\listoftables			%Tabellenverzeichnis
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{parts/abstract}
 \include{parts/introduction}
 \include{parts/related}
 \include{parts/benefits}
