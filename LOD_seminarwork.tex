@@ -37,13 +37,43 @@
 \usepackage[final]{pdfpages}
 \usepackage[numbers]{natbib}
 \usepackage{pgfplots}
+\pgfplotsset{compat=newest}
 \usepackage{subfigure}
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage{array,booktabs}% http://ctan.org/pkg/{array,booktabs}
 \renewcommand{\arraystretch}{1.5}% Spread rows out...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titlesec}
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{page}{1}			%setzt erste Seitennummer auf 1(falls Titelblatt nicht gezählt werden soll)
-\setcounter{secnumdepth}{3}	%setzt Kapitelnummerierungstiefe auf 6
+\setcounter{secnumdepth}{4}	%setzt Kapitelnummerierungstiefe
 \setcounter{tocdepth}{3}			%Kapitelnummerierungstiefe für Inhaltsverzeichnis
 \makeindex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -52,7 +82,7 @@
 \setlength{\tabcolsep}{10pt}
 \pagenumbering{gobble}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Linked~Open~Data\\
+\title{\textbf{L}inked~\textbf{O}pen~\textbf{D}ata\\
 	   at the\\
 	   Vienna~University~of~Technology\\
 	   \large A case study about research data}
@@ -65,7 +95,9 @@
 \maketitle
 
 \begin{abstract}
-The abstract goes here.
+A report about Linked Open Data, how they help to improve processes in a university context and how they can successfully be applied a the Vienna University of Technology. Especially this paper aims to understand best practices regarding the applicability of Linked Open Data in university settings, major benefits, challenges and barriers of an according implementation. Further the most important stakeholders will be identified and major use cases explored in a case study. The report ends with a proposal of a generic technical architecture.
+
+The work was done in three different shapes to match the three major stakeholders: researcher, students and administration staffs. This work focus on researcher, the other two papers are referenced in this report.
 \end{abstract}
 
 \vfill

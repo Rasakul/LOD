@@ -1,11 +1,11 @@
-\section{Proposed technical architecture and challenges (RQ4)}
+\section{Proposed technical architecture and challenges (RQ4)}~\label{section:technical_architecture}
 As an organization covering areas like research, student affairs and administration a university has to manage a significant amount of knowledge, adding new information on a daily basis.
 Such an application domain is complex and includes areas like management of an academic library and provision of educational resources which have to be conform to stakeholders requirements. Traditionally the \textit{Service Oriented Architectures~(SOA)} have been used to meet these needs. However, as the application domain grows many small and similar services tend to emerge. That phenomena cannot only be observed at the Vienna University of Technology, but also at the Open University\footnote{\url{http://www.open.ac.uk/}}~\citet{inproceedings:zablith_consuming_2011}.
 
 A major problem of evolving similar, independent services are diverging data formats and service owners. Thus, knowledge and administrative information that has been collected by multiple services can not be easily interlinked. An example for such isolated services is the e-learning platform called TUWEL\footnote{\url{https://tuwel.tuwien.ac.at/}}, combining moodle\footnote{\url{https://moodle.org/}} and the central information system called TISS\footnote{\url{https://tiss.tuwien.ac.at/}}. These services provide course information and material, but are intended for different purposes. Whereas TISS focuses mainly on administrative functionality, TUWEL supports the interaction between teacher and student. 
 Adding additional services which, for example, synchronize deadlines and registration dates is costly due to the fact that the information is separated over different isolated sources and not easily accessible. 
 
-\subsection{The big picture: a publication framework}
+\subsection{The big picture: a publication framework}~\label{section:publication_framework}
 
 \begin{figure}[htbp]
 \centering
@@ -62,7 +62,7 @@ The outbound interfaces are:
 
 \newpage
 
-\subsection{Proposal of a technical architecture}
+\subsection{Proposal of a technical architecture}~\label{subsection:proposal_technical_architecture}
 
 In order to overcome the environment of data silos and to support the evolvement of a university-wide data space for public resources, a technical architecture following Linked Data principles is proposed and discussed in this section. Berners-Lee suggested four principles for publishing data on the web, which can be considered as best practise. The compliance with this best practise leads to Linked Data; \enquote{the idea is that the more people follow these principles, the more their data will be usable by others.}\cite{simperl_using_2013}. The four principles stated by Berners-Lee (2006)~\cite{article:bernerslee_2006} are:
 \begin{enumerate}
@@ -131,7 +131,7 @@ Again, LinkedUniversities listed a lot of useful vocabularies and ontologies on 
 
 \begin{figure}[htbp]
 \centering
-{\scalebox{0.5}{\includegraphics{images/architecture/bibo_graph_2.png}}}
+{\scalebox{0.4}{\includegraphics{images/architecture/bibo_graph_2.png}}}
 \caption[BIBO graph]{Graph of the Bibliographic Ontology}
 \label{Fi:bibo_graph}
 \end{figure}
