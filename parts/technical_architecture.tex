@@ -149,8 +149,8 @@ Considering the performance of such a system and to avoid too much communication
 The last step is obviously to expose the data from the triple store to the web. For this purpose a SPARQL endpoint is commonly used, but there are also other way, e.g. resolvable URIs, the linked data API~\footnote{\url{http://code.google.com/p/linked-data-api/}} or an Open RESTful API. All of them make the data available so others can query and access them to use it for their application or to serve themselves as resource for linking it with other data.
 
 %\subsection{Stakeholder specific issues (datasets, application types)}
-\subsection{Challenges}
-In this section we will briefly describe some of the most crucial factors which has to be faced when implementing a system similar to the proposed one.
+\subsection{Challenges}\label{subsec:tec_challenges}
+In this section we will briefly describe some of the most crucial factors that has to be faced when implementing a system similar to the proposed one.
 
 \subsubsection{Data ownership}
 When exposing data as LOD the ownership of the original data has to be cleared without any doubt, so there are no legal concerns to be cared about when implementing the system. An unclear ownership may otherwise lead to a complete failure of the project, if the worst comes to the worst at a time where already a lot of time and work are spent. Further, to ensure a stable system, the ownership has be clear over a long time in the future - otherwise other applications, built on the data, loose their source.
@@ -159,6 +159,8 @@ When exposing data as LOD the ownership of the original data has to be cleared w
 Publishing a LOD system there must be a compromise found between actuality of the data and a proper system load of the interface to the data source (e.g. an active used database), so existing system may not be (to heavily) effected by the LOD system. According to the data the actuality may range between weeks and days (e.g. for location data) or minutes and seconds (e.g. public transport data).
 
 Further it must be ensured that the linking of the data are valid at every time, linking to no longer existing sources or sources with sinking data quality will lower the quality of data itself.
+
+To address and handle this challenge, we recommend to build on already existing (and therefore maintained) data, e.g. by providing a LOD interface to a relational database. Gain extra data only for providing LOD may result in more amount of work in building new organization forms to administrate them.
 
 \subsubsection{Response time of the LOD interface}
 To achieve not only a providing of the data but also a use of the data in applications, the interface (e.g.
