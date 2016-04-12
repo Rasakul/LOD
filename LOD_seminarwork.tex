@@ -7,43 +7,34 @@
 %Standardformatierung
 \usepackage[left=3cm,right=3cm,top=2cm,bottom=1.5cm,includefoot]{geometry}
 \usepackage[USenglish]{babel} 
-\usepackage[ansinew]{inputenc}
+\usepackage[utf8]{inputenc}
 %für Silbentrennung und Schriftstil
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 %für diverse Figuren
 \usepackage{graphicx}	%für Bilder/Grafiken einbinden
 \usepackage{booktabs} %schönere Tabellen
-\usepackage{wrapfig}  %mit oder von Schrift umflossen Bilder
-%für Mathe
-\usepackage{amssymb}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsbsy}
-\usepackage{amsfonts}
-\usepackage{amstext} %\text für Math-Umgebung
 %Referenzen
-\usepackage{prettyref} %eigene Ref mit \newrefformat
 \usepackage{hyperref} %klickbare Verweise
 \usepackage{url}	%URL-Links
-%Algorithmen
-\usepackage[]{algorithm2e}
-\usepackage{algpseudocode}
 %anderes Zeug
 \usepackage{grffile} %pdf-Files mit Leerzeichen einbinden
 \usepackage{microtype}	%schönere pdfs
 \usepackage[multiple]{footmisc}  %für Fußnoten
 \usepackage{csquotes}
 \usepackage[final]{pdfpages}
-\usepackage[numbers]{natbib}
+%\usepackage[numbers]{natbib}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 \usepackage{subfigure}
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage{array,booktabs}% http://ctan.org/pkg/{array,booktabs}
 \renewcommand{\arraystretch}{1.5}% Spread rows out...
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{titlesec}
+
+\usepackage[backend=bibtex,bibencoding=ascii, natbib=true, defernumbers=true, style=ieee]{biblatex}
+\addbibresource{references.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleclass{\subsubsubsection}{straight}[\subsection]
 
 \newcounter{subsubsubsection}[subsubsection]
@@ -109,7 +100,7 @@ The work was done in three different shapes to match the three major stakeholder
 \newpage
 \tableofcontents
 %\newpage
-\cleardoublepage
+%\cleardoublepage
 \listoffigures
 \pagenumbering{arabic}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,9 +114,16 @@ The work was done in three different shapes to match the three major stakeholder
 
 \cleardoublepage
 \phantomsection
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addcontentsline{toc}{section}{References}
-\bibliographystyle{plainnat}
-\bibliography{references}
+
+\printbibliography[title={References to refereed scientific work}, keyword=refsw]
+
+\printbibliography[title={References to non-refereed work}, keyword=nonrefw]
+
+\printbibliography[title={References to websites}, type=misc]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 
 \begin{appendices}

@@ -1,4 +1,4 @@
-\section{Conclusions and future work}~\label{section:conclusion}
+\section{Conclusion and Future Work}~\label{section:conclusion}
 
 The high-level goal of this work in to enhance and improve processes at the Vienna University of Technology. We have broken down this goal into four distinct research questions:
 
@@ -9,13 +9,58 @@ The high-level goal of this work in to enhance and improve processes at the Vien
 	\item \textit{RQ4: How would a prototypical implementation of a publication framework based on Linked Open Data look like?}
 \end{itemize}
 
-In the first part of this paper (section~\ref{section:related_work}) we investigated the first research question and provided international best practices and success stories in educational environments. We have seen that there are plenty similar project and collected knowledge on which a project at the Vienna University of Technology could build on. The Linked Universities provide a wide range of best practices of technologies and ontologies and we presented other successful projects that show the possibilities and benefits of LODs.
+In the first part of this paper (section~\ref{section:related_work}) we investigated the first research question and provided international best practices and success stories in educational environments. 
 
-In the second part (section~\ref{section:benefits}) we focused on benefits and challenges regarding the applicability as well as the implementation of Linked Data principles for researchers at the Vienna University of Technology by conducting interviews, addressing the second and the third research question. We have seen that a LOD project would be highly welcomed by researcher and that there are a lot of possible use cases. Also the opportunity to develop new ideas based on an access to open data was very common welcome.
+In the second part (section~\ref{section:benefits}) we focused on benefits and challenges regarding the applicability as well as the implementation of Linked Data principles for researchers at the Vienna University of Technology by conducting interviews, addressing the second and the third research question. 
+In final part (section~\ref{section:technical_architecture}) we addressed research question four by giving a high level overview of a publication framework for educational resources at first (subsection~\ref{section:publication_framework}) and then providing a general architecture for applications built following Linked Data principles (subsection~\ref{subsection:proposal_technical_architecture}).
 
-In final part (section~\ref{section:technical_architecture}) we addressed research question four by giving a high level overview of a publication framework for educational resources at first (subsection~\ref{section:publication_framework}) and then providing a general architecture for applications built following Linked Data principles (subsection~\ref{subsection:proposal_technical_architecture}). We showed how the best practices presented by the Linked Universities and the Tabloid from the LUCERO project could used to build a system providing LOD. Further we identified major challenges (subsection~\ref{subsec:tec_challenges}) like data ownership, data administration and maintenance that has to be faced when implementing a system similar to the proposed one.
+In this section we discuss the conclusion and the four research questions we investigated and present ideas for future work.
+
+\subsection{Conclusion}~\label{subsection:future_work}
+
+In the following subsection we address and revisit each research question:
+
+\subsubsection{Best practices regarding the applicability of Linked Open Data in university settings}
+We investigated three international project using Linked Data or Linked Open Data. The Linked Universities provide a wide range of best practices of technologies and ontologies, especially the Open University gives a lot of insight and approaches with their LUCERO project. Further the LD4L project shows a possible approach of linking libraries with Linked Data and the LinkedUp project, funded by the European Commission, aimed at pushing forward the exploitation and adoption of Linked Open Data in educational organizations and institutions.
+\\~\\
+Therefore we conclude:
+
+\textbf{Linked Open Data is a promising way of enhancing and harmonizing processes at universities and there are plenty similar project and collected knowledge on which a project at the Vienna University of Technology could build on}. There is no need of creating complete new ontologies and tools, a project should instead \textit{build on existing knowledge}.
+
+\subsubsection{Major benefits, challenges and use cases for stakeholders}
+We researched this question by a case study conducted with researcher to explore new beneficial use cases and to evaluate known ones and given use cases. We have seen that a LOD project would be highly welcomed by them, that there are a lot of possible use cases and the benefits highly overbalance the barriers in general. The interviewee responded to provided use case of LOD for the library theoretical positive but also with doubts about an implementation. In contrast the use case of the publication database had a higher consent. Also the opportunity to develop new ideas based on an access to open data was very common welcome.
+\\~\\
+Our work resulted in the following conclusion:
+
+\textbf{There are a great support of possible LOD application at the university and many imaginable use cases}. Once published, \textit{we suggest to use the data with students, gave them access and let them develop application} in courses like Advanced Software Engineering, Introduction to Semantic Web, SAIKS and SENIC projects. This would not only produce new application for demonstration but also attract attention on the interfaces.
+
+\subsubsection{Major challenges for the implementation of a Linked Open Data solution}
+One identified major challenge of implementing a LOD solution is \textbf{data ownership}, as there may be diverging data owners, because there might be independent services at the university that handle a particular part of the domain. Consequently, to start a LOD project, the ownership of the targeted data has be clarified. Another major challenge is data freshness, as it is a crucial point making the solution usable or not. And as third major challenge we identified \textbf{data quality and maintenance} as another crucial point of project failure.
+\\~\\
+Therefore, the following conclusion were drawn:
+
+\textbf{We recommend using existing, therefore maintained and open data sets as a foundation of new applications.} The cost of integrating large data sets can become quite time consuming if independent domains are mixed. Even for smaller, more limited domains using existing data sets outweighs the benefits of creating new, fully customized data sets. If additional requirements arise
+modifying and/or adding to existing data is preferable. When progressing and extending the project it will be easier to reference onto an existing and well working system to convince skeptical people to build the required providing systems and organization forms.
+
+\subsubsection{A prototypical implementation}
+In the final part (section~\ref{section:technical_architecture}) we addressed research question four by introducing a publication framework (subsection~\ref{section:publication_framework}) as well as a general application architecture using Linked Data principles for university related resources (subsection~\ref{subsection:proposal_technical_architecture}). We further showed how the best practices presented by the Linked Universities and the Tabloid from the LUCERO project could used to build a system providing LOD.
+\\~\\
+We come to the following conclusions:
+
+Applications making use of LOD should be built following a general architecture. There have already been efforts at building LOD applications at enterprise level, sharing a similar foundation. An agreed picture of a successful architecture facilitates establishing common vocabularies and understandings under developers, customers and management.
 
 \subsection{Future work}~\label{subsection:future_work}
+
+Contributions and methods of this work is intended as an initial step to investigate the adoption of Linked Data principles and spread awareness and knowledge at the Vienna University of Technology. The following list summarizes planned future work:
+
+\begin{itemize}
+	\item \texttt{(Educational) courses aimed at spreading Linked Data principles}\\
+	Educational courses are great opportunities to facilitate building of LOD applications and maintaining related data sets.
+	\item \texttt{Building (end-user) LOD applications}\\
+	Application development is not limited to resulting from educational courses. Rather, due to the heterogeneity of universities data sets, a collaboration between external parties and university representatives is required.
+	\item \texttt{Consolidated report to executive board}\\
+	There will be a followup report, summarizing our contributions for students, researchers and administrative workers. This report is addressed to the executive board of the Vienna University of Technology. A side-product of this report will be a brief presentation about the overall result and achievements, planned in the near future.
+\end{itemize}
 
 \subsubsection{Feasible use cases}
 
@@ -25,11 +70,6 @@ On the other hand implementing the library data into a LOD system may face resis
 
 Similar is valid for the project ideas mentioned in subsection~\ref{subsubsec:further_use_cases}, most of them may make more sense in a Austria- and/or European-wide context.
 
-\subsubsection{General findings about LOD and implementations}
-
-As identified in the interviews, the challenge of data quality and maintenance are very important for any kind of work with LOD. Therefore we recommend using already existing (and therefore maintained) data when starting a LOD project at the university. Gain extra data only for providing LOD may result in more amount of work in building new organization forms to administrate them. When progressing and extending the project it will be easier to reference onto an existing and well working system to convince skeptical people to build the required providing systems and organization forms.
-
-Further, as described in subsection~\ref{subsubsection:general_results}, we advocate to involve students as parts of university courses and project as soon as there are Linked Open Data available to develop new ideas, use cases and applications on base of this data. This would not only produce new application for demonstration but also attract attention on the interfaces.
 
 \section{Acknowledgments}
 The authors would like to thank Assoc. Prof. Dr. Stefan Biffl and Dr. Marta Sabou for initializing and support this work, providing necessary feedback and 	tutoring in the context of the seminar ``Wissenschaftliches Arbeiten'' (``Scientific Work'').

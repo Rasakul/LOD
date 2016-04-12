@@ -1,4 +1,6 @@
-\ProvidesPackage{paperandpencil}[2009/08/11 v1.0]
+\ProvidesPackage{custompaperandpencil}[20016/02/17 v1.0]
+
+% Adaption of the paperandpencil package.
 
 \RequirePackage{amssymb,latexsym,amsmath}
 \RequirePackage{stmaryrd}
@@ -6,7 +8,10 @@
 \RequirePackage{longtable}
 \RequirePackage{framed}
 \RequirePackage{color}
-\RequirePackage{array,booktabs,calc} 
+\RequirePackage{array,booktabs,calc}
+\RequirePackage{calc}
+% package required for addmargin.
+\RequirePackage{scrextend}
 
 \definecolor{myColor}{rgb}{0.9,0.9,0.9} 
 \definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
@@ -16,25 +21,63 @@
 \parindent0cm 
 \pagestyle{empty}
 
-\renewcommand*\thechapter{\bf{\arabic{chapter}.}}
+%\renewcommand*\thechapter{\bf{\arabic{chapter}.}}
 \catcode `@11
 \def\question{\@startsection {chapter}{1}{\z@}{-3.5ex plus
 -1ex minus  -.2ex}{1.5ex plus .2ex}{}}
 
-\newenvironment{answersA}{\vspace{0.25cm}\begin{addmargin}[2cm]{6cm}\begin{compactitem}[]}{\end{compactitem}\end{addmargin}}
+
+% ***************************************************************************
+% Answers (vertical boxes)
+% ***************************************************************************
+
+\newcommand{\answercontainervmargin}{0.25cm}
+
+% Answers with the style A.
+\newenvironment{answersA}
+{
+	\vspace{\answercontainervmargin}
+	\begin{addmargin}[2cm]{6cm}
+	\begin{compactitem}[]}{\end{compactitem}\end{addmargin}}
 
 \newcommand{\pbox}[1]{#1\dotfill$\Box$}
 \newcommand{\pbigbox}[1]{#1\dotfill$\square$}
 \newcommand{\ebox}[1]{#1\hfill$\Box$}
 \newcommand{\ebigbox}[1]{#1\hfill$\square$}
 
-\newenvironment{answersB}{\vspace{0.25cm}\begin{addmargin}[2cm]{6cm}\begin{compactitem}[$\Box$\quad]}{\end{compactitem}\end{addmargin}}
-\newenvironment{answersC}{\vspace{0.25cm}\begin{addmargin}[2cm]{6cm}\begin{compactitem}[$\square$\quad]}{\end{compactitem}\end{addmargin}}
+% Long answers with the style A.
+\newenvironment{longanswersA}
+{
+	\vspace{\answercontainervmargin}
+	\begin{addmargin}[0.5cm]{0cm}
+	\begin{compactitem}[]}{\end{compactitem}\end{addmargin}}
 
-\newenvironment{longanswersA}{\vspace{0.25cm}\begin{addmargin}[0.5cm]{0cm}\begin{compactitem}[]}{\end{compactitem}\end{addmargin}} 
-\newenvironment{longanswersB}{\vspace{0.25cm}\begin{addmargin}[0.5cm]{0cm}\begin{compactitem}[$\Box$\quad]}{\end{compactitem}\end{addmargin}} 
-\newenvironment{longanswersC}{\vspace{0.25cm}\begin{addmargin}[0.5cm]{0cm}\begin{compactitem}[$\square$\quad]}{\end{compactitem}\end{addmargin}} 
+% Answers with the style B.
+\newenvironment{answersB}{
+	\vspace{\answercontainervmargin}
+	\begin{addmargin}[2cm]{6cm}
+		\begin{compactitem}[$\Box$\quad]
+		}{\end{compactitem}\end{addmargin}}
 
+% Long answers with the style B.		
+\newenvironment{longanswersB}{
+	\vspace{\answercontainervmargin}
+	\begin{addmargin}[0.5cm]{0cm}\begin{compactitem}[$\Box$\quad]}{\end{compactitem}\end{addmargin}}
+
+% Answers with the style C.
+\newenvironment{answersC}
+{
+	\vspace{\answercontainervmargin}
+	\begin{addmargin}[2cm]{6cm}
+	\begin{compactitem}[$\square$\quad]}{\end{compactitem}\end{addmargin}}
+
+% Long answers with the style C.
+\newenvironment{longanswersC}{
+	\vspace{\answercontainervmargin}
+	\begin{addmargin}[0.5cm]{0cm}
+	\begin{compactitem}[$\square$\quad]}{\end{compactitem}\end{addmargin}}
+ 
+ 
 \newcommand{\df}[1]{#1\dotfill}
 \def\line{~\hrulefill~}
 
@@ -468,246 +511,87 @@
 \end{tabular}
 \end{center}}
 
-\newcommand{\openone}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opentwo}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
+% **************************************************************************
+% Open lines
+% **************************************************************************
+
+\newcommand{\openlineshmargin}{0.5cm}
+\newcommand{\openlinesvmargin}{0.4cm}
+
+% 1 open line
+\newcommand{\openone}
+{
+	\begin{addmargin}{\openlineshmargin}
+		\vspace{\openlinesvmargin}
+		\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\end{addmargin}
+}
+
+% 2 open lines
+\newcommand{\opentwo}
+{
+	\begin{addmargin}{\openlineshmargin}
+	\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\end{addmargin}
+}
+
+% 3 open lines 
+\newcommand{\openthree}
+{
+	\begin{addmargin}{\openlineshmargin}
+	\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\end{addmargin}
+}
+
+% 4 open lines 
+\newcommand{\openfour}
+{
+	\begin{addmargin}{\openlineshmargin}
+	\vspace{0.4cm}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\raisebox{-4.5mm}{\parbox{\columnwidth - \openlineshmargin - \openlineshmargin}{\hrule\strut}}\vspace{\openlinesvmargin}
+	\end{addmargin}
+}
+
+
+% **************************************************************************
+% Horizontal checkboxes with labels
+% **************************************************************************
+
+\newcommand{\hboxesvmargin}{0.5cm}
+\newcommand{\hboxewidth}{\columnwidth / 5}
+
+% 5 horizontal checkboxes with labels
+\newcommand{\horizontalfive}[2]
+{
+	\vspace{\hboxesvmargin}
+	\begin{center}
+		\begin{tabular}{p{\hboxewidth}p{\hboxewidth}p{\hboxewidth}p{\hboxewidth}p{\hboxewidth}p{0.001cm}}
+		#1\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\#2
+		\end{tabular}
+	\end{center}
+	\vspace{\hboxesvmargin}
+}
+
+\newcommand{\upfive}[5]
+{
+	\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\
+}
+
+\newcommand{\downfive}[5]
+{
+	\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\
+}
 
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\openthree}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
 
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
 
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\openfour}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\openfive}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opensix}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\openseven}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\openeight}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opennine}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\openten}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-
-\raisebox{-4.5mm}{\parbox{13cm}{\hrule\strut}}\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotsone}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotstwo}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotsthree}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotsfour}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotsfive}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotssix}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotsseven}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotseight}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotsnine}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
-\newcommand{\opendotsten}{\begin{addmargin}{1.5cm}
-\vspace{0.4cm}\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-
-\dotfill\vspace{0.4cm}
-\end{addmargin}}
 
 \newcommand{\htextlinethree}[3]{\vspace{0.5cm}
 \begin{center}\begin{tabular}{p{3cm}p{3cm}|p{3cm}p{0.001cm}}
@@ -770,10 +654,8 @@
 #1\centering$\Box$&\centering$\Box$&\centering$\Box$& \centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
 \newcommand{\upfour}[4]{\centering #1&\centering #2&\centering #3&\centering #4&\\}
 \newcommand{\downfour}[4]{\centering #1&\centering #2&\centering #3&\centering #4&\\}
-\newcommand{\horizontalfive}[2]{\vspace{0.5cm}\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
-#1\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
-\newcommand{\upfive}[5]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\}
-\newcommand{\downfive}[5]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\\}
+
+
 \newcommand{\horizontalsix}[2]{\vspace{0.5cm}\begin{center}\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{0.001cm}}
 #1\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\centering$\Box$&\\#2\end{tabular}\end{center}\vspace{0.5cm}}
 \newcommand{\upsix}[6]{\centering #1&\centering #2&\centering #3&\centering #4&\centering #5&\centering #6&\\}
